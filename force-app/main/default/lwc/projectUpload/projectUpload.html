@@ -1,0 +1,55 @@
+<template>
+<lightning-card>
+    
+        <div style="text-align:center;background-color:#ADD8E6; height:50px;">
+        New Project
+           </div>
+        <lightning-record-edit-form object-api-name="project__c" record-id={myRecordId} onsubmit={handleClick} onsuccess={handleSuccess} density="compact">
+        <lightning-messages>INFORMATION</lightning-messages>
+        
+        
+       <table style ="width:900px;">
+           <tr>
+            <td><lightning-input-field field-name="Project_name__c"></lightning-input-field></td>
+           <td><lightning-input-field field-name="owner__c"></lightning-input-field></td>
+        </tr>
+    <tr>
+        <td><lightning-input-field field-name="Priority__c">
+        </lightning-input-field></td>
+        <td><lightning-input-field field-name="Project_type__c">
+        </lightning-input-field></td>
+    </tr>
+       <tr><td> <lightning-input-field field-name="status__c">
+        </lightning-input-field></td>
+        <td><lightning-input-field field-name="End_date__c">
+        </lightning-input-field></td>
+    </tr>
+       
+        
+</table>
+
+<lightning-file-upload
+            
+            label="Attach receipt"
+            name="fileUploader"
+            accept={acceptedFormats}
+            record-id={myRecordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+    </lightning-file-upload></tr><br/>
+    
+        
+        <lightning-input-field  field-name="description__c" style =  "padding-left: 0px;" >
+        </lightning-input-field>
+
+        
+    
+    </lightning-record-edit-form >
+
+    
+</lightning-card>
+<p slot="footer" style="text-align:center;"><lightning-button variant="brand" label="Cancel" title="Primary action" onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="Save & New" title="Primary action" onclick={saveAndNewClick} class="slds-m-left_x-small"></lightning-button>
+</p> 
+</template>
